@@ -1,3 +1,18 @@
 .collection-preview {
+
+  &__title {
+    padding: 20px;
+    padding-bottom: 0;
+  }
   
+  &__list {
+    display: flex;
+    flex-wrap: wrap;
+    padding: 10px;
+  }
+
+  &__item {
+    width: 25%;
+    padding: 10px;
+  }
 }
