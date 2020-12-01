@@ -1,9 +1,22 @@
 .category-menu-item {
-  border: 1px solid $border-color;
   padding: 50px;
+  background-repeat: no-repeat;
+  background-position: right center;
+  background-size: cover;
 
   &__content {
-    border: 1px solid $border-color;
     padding: 10px;
+    background-color: rgba(0, 0, 0, 0.3);
+    text-align: center;
+    color: white;
+  }
+
+  &__title {
+    font-size: 30px;
+    margin-bottom: 10px;
+
+    @media screen and (max-width: $bp-2-1) {
+      font-size: 26px;
+    }
   }
 }
