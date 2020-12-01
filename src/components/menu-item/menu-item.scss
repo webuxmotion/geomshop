@@ -1,0 +1,10 @@
+.menu-item {
+  text-decoration: none;
+  color: #eb734c;
+  font-weight: bold;
+  border-bottom: 1px solid black;
+
+  &:hover {
+    border-bottom: 1px solid #eb734c;
+  }
+}
