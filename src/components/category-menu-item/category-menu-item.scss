@@ -1,0 +1,9 @@
+.category-menu-item {
+  border: 1px solid $border-color;
+  padding: 50px;
+
+  &__content {
+    border: 1px solid $border-color;
+    padding: 10px;
+  }
+}

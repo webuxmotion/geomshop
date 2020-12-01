@@ -1,15 +1,8 @@
-import logo from './logo.svg';
-import './App.css';
+import { HomePage } from './pages';
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <p>
-          GEOM SHOP
-        </p>
-      </header>
-    </div>
+    <HomePage />
   );
 }
 
