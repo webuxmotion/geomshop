@@ -2,6 +2,8 @@ import { Component } from 'react';
 
 import { FormInput, Button } from '../../components';
 
+import { signInWithGoogle } from '../../firebase/firebase.utils';
+
 class Signin extends Component {
 
   state = {
@@ -46,6 +48,7 @@ class Signin extends Component {
           />
         </div>
         <Button type="submit">Sign in</Button>
+        <Button onClick={signInWithGoogle}>Sign in with Google</Button>
       </form>
     </div>)
   }
