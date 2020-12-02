@@ -25,7 +25,7 @@ class Signin extends Component {
 
   render() {
     return (<div className="g-container">
-      <h2 className="g-mb-2">I already have an account</h2>
+      <h2 className="g-mb-2">Sign in</h2>
       <form onSubmit={this.handleSubmit}>
         <div className="g-mb-2">
           <FormInput
@@ -48,7 +48,9 @@ class Signin extends Component {
           />
         </div>
         <Button type="submit">Sign in</Button>
-        <Button onClick={signInWithGoogle}>Sign in with Google</Button>
+        <span className="g-ml-2">
+          <Button onClick={signInWithGoogle} theme="google-signin">Sign in with Google</Button>
+        </span>
       </form>
     </div>)
   }

@@ -6,4 +6,15 @@
   text-transform: uppercase;
   cursor: pointer;
   padding: 16px 40px;
+
+  &--theme {
+
+    &--google-signin {
+      background-color: #4285F4;
+
+      &:hover {
+        background-color: #185abc;
+      }
+    }
+  }
 }

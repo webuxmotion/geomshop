@@ -2,7 +2,7 @@ import firebase from 'firebase/app';
 import 'firebase/firestore';
 import 'firebase/auth';
 
-const config = {};
+import config from './config';
 
 firebase.initializeApp(config);
 

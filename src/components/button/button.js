@@ -1,5 +1,9 @@
-const Button = ({ children, ...otherProps }) => (
-  <button className="button" {...otherProps}>
+import classnames from 'classnames';
+
+const Button = ({ children, theme, ...otherProps }) => (
+  <button className={classnames('button', {
+    [`button--theme--${theme}`]: theme
+  })} {...otherProps}>
     {children}
   </button>
 );
