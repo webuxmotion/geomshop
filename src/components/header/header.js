@@ -16,9 +16,14 @@ const Header = ({ currentUser }) => (
           <div className="header__nav-item">
             <MenuItem handleClick={() => auth.signOut()}>SIGNOUT</MenuItem>
           </div> :
-          <div className="header__nav-item">
-            <MenuItem href="/signin">SIGNIN</MenuItem>
-          </div>
+          <>
+            <div className="header__nav-item">
+              <MenuItem href="/signup">SIGNUP</MenuItem>
+            </div>
+            <div className="header__nav-item">
+              <MenuItem href="/signin">SIGNIN</MenuItem>
+            </div>
+          </>
         }
       </div>
     </div>

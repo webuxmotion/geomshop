@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { Switch, Route } from 'react-router-dom';
 
 import { Header } from './components';
-import { HomePage, ShopPage, SigninPage } from './pages';
+import { HomePage, ShopPage, SigninPage, SignupPage } from './pages';
 
 import { auth, createUserProfileDocument } from './firebase/firebase.utils';
 
@@ -44,6 +44,7 @@ class App extends Component {
           <Route exact path='/' component={HomePage} />
           <Route exact path='/shop' component={ShopPage} />
           <Route exact path='/signin' component={SigninPage} />
+          <Route exact path='/signup' component={SignupPage} />
         </Switch>
       </>
     );
