@@ -4,7 +4,9 @@ import CollectionPreview from './collection-preview/collection-preview';
 import CollectionItem from './collection-item/collection-item';
 import Header from './header/header';
 import Logo from './logo/logo';
+import Button from './button/button';
 import MenuItem from './menu-item/menu-item';
+import FormInput from './form-input/form-input';
 
 export {
   CategoryList,
@@ -14,4 +16,6 @@ export {
   Header,
   Logo,
   MenuItem,
+  FormInput,
+  Button,
 }

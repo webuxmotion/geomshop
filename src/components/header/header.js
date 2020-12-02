@@ -6,8 +6,13 @@ const Header = () => (
       <Logo href="/" />
     </div>
     <div className="header__column">
-      <div className="header__nav-item">
-        <MenuItem href="/shop">SHOP</MenuItem>
+      <div className="header__nav-list">
+        <div className="header__nav-item">
+          <MenuItem href="/shop">SHOP</MenuItem>
+        </div>
+        <div className="header__nav-item">
+          <MenuItem href="/signin">SIGNIN</MenuItem>
+        </div>
       </div>
     </div>
   </header>
