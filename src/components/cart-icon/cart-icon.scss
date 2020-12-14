@@ -1,0 +1,15 @@
+.cart-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  
+  &__image {
+    width: 30px;
+    height: auto;
+  }
+
+  &__count {
+    margin-top: 4px;
+  }
+}

@@ -1,11 +1,11 @@
 .menu-item {
   text-decoration: none;
-  color: #eb734c;
+  color: var(--primary-color);
   font-weight: bold;
   border-bottom: 1px solid black;
   cursor: pointer;
 
   &:hover {
-    border-bottom: 1px solid #eb734c;
+    border-bottom: 1px solid var(--primary-color);
   }
 }

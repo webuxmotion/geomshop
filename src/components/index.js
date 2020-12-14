@@ -6,6 +6,8 @@ import Header from './header/header';
 import Logo from './logo/logo';
 import Button from './button/button';
 import MenuItem from './menu-item/menu-item';
+import CartIcon from './cart-icon/cart-icon';
+import CartDropdown from './cart-dropdown/cart-dropdown';
 import FormInput from './form-input/form-input';
 
 export {
@@ -17,5 +19,7 @@ export {
   Logo,
   MenuItem,
   FormInput,
+  CartIcon,
   Button,
+  CartDropdown,
 }
