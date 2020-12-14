@@ -30,19 +30,19 @@ const products = [
     routeName: '3d-objects',
     items: [
       {
-        id: 1,
+        id: 4,
         name: 'pyramid',
         imageUrl: '/products/3d/pyramid.svg',
         price: 156
       },
       {
-        id: 2,
+        id: 5,
         name: 'cube',
         imageUrl: '/products/3d/cube.svg',
         price: 256
       },
       {
-        id: 3,
+        id: 6,
         name: 'sphere',
         imageUrl: '/products/3d/sphere.svg',
         price: 360
