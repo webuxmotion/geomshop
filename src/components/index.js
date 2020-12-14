@@ -7,6 +7,7 @@ import Logo from './logo/logo';
 import Button from './button/button';
 import MenuItem from './menu-item/menu-item';
 import CartIcon from './cart-icon/cart-icon';
+import CartItem from './cart-item/cart-item';
 import CartDropdown from './cart-dropdown/cart-dropdown';
 import FormInput from './form-input/form-input';
 
@@ -22,4 +23,5 @@ export {
   CartIcon,
   Button,
   CartDropdown,
+  CartItem,
 }

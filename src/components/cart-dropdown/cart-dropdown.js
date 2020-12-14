@@ -1,10 +1,18 @@
-const CartDropdown = () => {
+import { connect } from 'react-redux';
+
+import { CartItem } from '../index';
+
+const CartDropdown = ({ cartItems }) => {
 
   return (
     <div className="cart-dropdown">
-      dropdown
+      { cartItems.map(item => <CartItem key={item.id} item={item} />) }
     </div>
   );
 };
 
-export default CartDropdown;
+const mapStateToProps = ({ cart: { cartItems } }) => ({
+  cartItems
+});
+
+export default connect(mapStateToProps)(CartDropdown);
