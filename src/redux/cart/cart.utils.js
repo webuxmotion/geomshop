@@ -5,9 +5,23 @@ export const addItemToCart = (cartItems, item) => {
     return [...cartItems, { ...item, quantity: 1 }];
   }
 
-  return cartItems.map(cartItem => 
+  return cartItems.map(cartItem =>
     cartItem.id === existingItem.id
       ? { ...cartItem, quantity: cartItem.quantity + 1 }
       : cartItem
   );
 }
+
+export const deleteItem = (cartItems, item) =>
+  cartItems.map(cartItem => 
+    cartItem.id === item.id
+      ? (
+        cartItem.quantity <= 1 
+          ? { ...cartItem, quantity: 1 }
+          : { ...cartItem, quantity: cartItem.quantity - 1 }
+      )
+      : cartItem
+  );
+
+export const clearItemFromCart = (cartItems, item) =>
+  cartItems.filter(cartItem => cartItem.id !== item.id)
