@@ -1,9 +1,9 @@
 import React from 'react';
 import { withRouter } from 'react-router-dom';
 
-const CategoryMenuItem = ({ item: { title, subtitle, imageUrl, linkUrl }, history, match }) => (
+const CategoryMenuItem = ({ item: { title, subtitle, imageUrl, linkUrl }, history }) => (
   <div
-    onClick={() => history.push(`${match.url}${linkUrl}`)}
+    onClick={() => history.push(`/shop/${linkUrl}`)}
     className="category-menu-item" style={{
       backgroundImage: `url(${imageUrl})`
     }}

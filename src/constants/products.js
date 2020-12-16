@@ -1,5 +1,5 @@
-const products = [
-  {
+const products = {
+  '2d-objects': {
     id: 1,
     title: '2d Objects',
     routeName: '2d-objects',
@@ -24,7 +24,7 @@ const products = [
       },
     ]
   },
-  {
+  '3d-objects': {
     id: 2,
     title: '3d Objects',
     routeName: '3d-objects',
@@ -49,6 +49,6 @@ const products = [
       },
     ]
   }
-];
+};
 
 export default products;

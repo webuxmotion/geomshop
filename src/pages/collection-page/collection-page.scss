@@ -1,0 +1,13 @@
+.collection-page {
+    padding: 20px;
+
+    &__items {
+        display: flex;
+        margin: 0 -10px;
+    }
+
+    &__item {
+        width: 25%;
+        padding: 10px;
+    }
+}
