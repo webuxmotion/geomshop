@@ -3,10 +3,6 @@ import { CollectionItem } from '../../components';
 import { selectCollection } from '../../redux/shop/shop.selectors';
 
 const CollectionPage = ({ collection }) => {
-  if (!collection) {
-    return <>Loaded...</>
-  }
-
   const { title, items } = collection;
 
   return (
