@@ -2,6 +2,7 @@ import CategoryList from './category-list/category-list';
 import CategoryMenuItem from './category-menu-item/category-menu-item';
 import CollectionPreview from './collection-preview/collection-preview';
 import CollectionOverview from './collection-overview/collection-overview';
+import CollectionOverviewContainer from './collection-overview/collection-overview.container';
 import CollectionItem from './collection-item/collection-item';
 import Header from './header/header';
 import Logo from './logo/logo';
@@ -26,4 +27,5 @@ export {
   CartDropdown,
   CartItem,
   CollectionOverview,
+  CollectionOverviewContainer,
 }
