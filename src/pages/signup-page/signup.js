@@ -1,8 +1,11 @@
 import { Component } from 'react';
+import { connect } from 'react-redux';
+import { createStructuredSelector } from 'reselect';
 
 import { FormInput, Button } from '../../components';
 
-import { auth, createUserProfileDocument } from '../../firebase/firebase.utils';
+import { signUpStart } from '../../redux/user/user.actions';
+import { selectUserError } from '../../redux/user/user.selectors';
 
 const initialState = {
   displayName: '',
@@ -15,9 +18,9 @@ class Signup extends Component {
 
   state = initialState;
 
-  handleSubmit = async event => {
-    event.preventDefault();
+  handleSubmit = () => {
 
+    const { signUpStart } = this.props;
     const { displayName, email, password, confirmPassword } = this.state;
 
     if (password !== confirmPassword) {
@@ -25,15 +28,7 @@ class Signup extends Component {
       return;
     }
 
-    try {
-      const { user } = await auth.createUserWithEmailAndPassword(email, password);
-
-      createUserProfileDocument(user, { displayName });
-
-      this.setState(initialState);
-    } catch (error) {
-      console.log(error.message);
-    }
+    signUpStart({ displayName, email, password });
   }
 
   handleChange = event => {
@@ -43,11 +38,13 @@ class Signup extends Component {
   }
 
   render() {
+    const { userError } = this.props;
     const { displayName, email, password, confirmPassword } = this.state;
 
     return (<div className="g-container">
       <h2 className="g-mb-2">Sign up</h2>
-      <form onSubmit={this.handleSubmit}>
+      { userError && <p>{userError}</p>}
+      <form>
         <div className="g-mb-2">
           <FormInput
             label="Display Name"
@@ -88,10 +85,18 @@ class Signup extends Component {
             required
           />
         </div>
-        <Button type="submit">Sign up</Button>
+        <Button onClick={this.handleSubmit}>Sign up</Button>
       </form>
     </div>)
   }
 }
 
-export default Signup;
+const mapStateToProps = createStructuredSelector({
+  userError: selectUserError
+});
+
+const mapDispatchToProps = dispatch => ({
+  signUpStart: formData => dispatch(signUpStart(formData))
+});
+
+export default connect(mapStateToProps, mapDispatchToProps)(Signup);

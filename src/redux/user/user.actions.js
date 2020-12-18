@@ -23,6 +23,21 @@ export const signInFailure = errorMessage => ({
   payload: errorMessage
 });
 
+export const signUpStart = formData => ({
+  type: UserActionTypes.SIGN_UP_START,
+  payload: formData
+});
+
+export const signUpSuccess = ({ user, additionalData }) => ({
+  type: UserActionTypes.SIGN_UP_SUCCESS,
+  payload: { user, additionalData }
+});
+
+export const signUpFailure = errorMessage => ({
+  type: UserActionTypes.SIGN_UP_FAILURE,
+  payload: errorMessage
+});
+
 export const signOutStart = () => ({
   type: UserActionTypes.SIGN_OUT_START
 });
