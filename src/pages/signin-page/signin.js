@@ -57,7 +57,7 @@ class Signin extends Component {
             required
           />
         </div>
-        <Button type="button" onClick={this.handleSubmit}>Sign ind</Button>
+        <Button type="button" onClick={this.handleSubmit}>Sign in</Button>
         <span className="g-ml-2">
           <Button 
             type="button"
