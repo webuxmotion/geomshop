@@ -1,46 +1,32 @@
-import { Component } from 'react';
-import { connect } from 'react-redux';
-import { createStructuredSelector } from 'reselect';
+import { useState } from 'react';
 
 import { FormInput, Button } from '../../components';
 
-import { googleSignInStart, emailSignInStart } from '../../redux/user/user.actions';
-import { selectUserError } from '../../redux/user/user.selectors';
+const Signin = ({ emailSignInStart, googleSignInStart, userError }) => {
+  const [credentials, setCredentials] = useState({ email: '', password: '' });
+  const { email, password } = credentials;
 
-class Signin extends Component {
-
-  state = {
-    email: '',
-    password: '',
-  }
-
-  handleSubmit = async event => {
+  const handleSubmit = async event => {
     event.preventDefault();
-
-    const { emailSignInStart } = this.props;
-    const { email, password } = this.state;
     
     emailSignInStart(email, password);
   }
 
-  handleChange = event => {
+  const handleChange = event => {
     const { name, value } = event.target;
 
-    this.setState({ [name]: value });
+    setCredentials({ ...credentials, [name]: value });
   }
 
-  render() {
-    const { googleSignInStart, userError } = this.props;
-    const { email, password } = this.state;
-
-    return (<div className="g-container">
+  return (
+    <div className="g-container">
       <h2 className="g-mb-2">Sign in</h2>
       { userError && <p>{userError}</p>}
       <form>
         <div className="g-mb-2">
           <FormInput
             label="Email"
-            handleChange={this.handleChange}
+            handleChange={handleChange}
             name="email"
             type="email"
             value={email}
@@ -50,14 +36,14 @@ class Signin extends Component {
         <div className="g-mb-2">
           <FormInput
             label="Password"
-            handleChange={this.handleChange}
+            handleChange={handleChange}
             name="password"
             type="password"
             value={password}
             required
           />
         </div>
-        <Button type="button" onClick={this.handleSubmit}>Sign in</Button>
+        <Button type="button" onClick={handleSubmit}>Sign in</Button>
         <span className="g-ml-2">
           <Button 
             type="button"
@@ -66,17 +52,8 @@ class Signin extends Component {
           >Sign in with Google</Button>
         </span>
       </form>
-    </div>)
-  }
+    </div>
+  )
 }
 
-const mapStateToProps = createStructuredSelector({
-  userError: selectUserError
-})
-
-const mapDispatchToProps = dispatch => ({
-  googleSignInStart: () => dispatch(googleSignInStart()),
-  emailSignInStart: (email, password) => dispatch(emailSignInStart({ email, password })),
-});
-
-export default connect(mapStateToProps, mapDispatchToProps)(Signin);
+export default Signin;

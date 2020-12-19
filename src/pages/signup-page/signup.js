@@ -1,11 +1,6 @@
-import { Component } from 'react';
-import { connect } from 'react-redux';
-import { createStructuredSelector } from 'reselect';
+import { useState } from 'react';
 
 import { FormInput, Button } from '../../components';
-
-import { signUpStart } from '../../redux/user/user.actions';
-import { selectUserError } from '../../redux/user/user.selectors';
 
 const initialState = {
   displayName: '',
@@ -14,15 +9,11 @@ const initialState = {
   confirmPassword: '',
 }
 
-class Signup extends Component {
+const Signup = ({ signUpStart, userError }) => {
+  const [credentials, setCredentials] = useState(initialState);
+  const { displayName, email, password, confirmPassword } = credentials;
 
-  state = initialState;
-
-  handleSubmit = () => {
-
-    const { signUpStart } = this.props;
-    const { displayName, email, password, confirmPassword } = this.state;
-
+  const handleSubmit = () => {
     if (password !== confirmPassword) {
       alert("Passwords don't match");
       return;
@@ -31,24 +22,21 @@ class Signup extends Component {
     signUpStart({ displayName, email, password });
   }
 
-  handleChange = event => {
+  const handleChange = event => {
     const { name, value } = event.target;
 
-    this.setState({ [name]: value });
+    setCredentials({ ...credentials, [name]: value });
   }
 
-  render() {
-    const { userError } = this.props;
-    const { displayName, email, password, confirmPassword } = this.state;
-
-    return (<div className="g-container">
+  return (
+    <div className="g-container">
       <h2 className="g-mb-2">Sign up</h2>
       { userError && <p>{userError}</p>}
       <form>
         <div className="g-mb-2">
           <FormInput
             label="Display Name"
-            handleChange={this.handleChange}
+            handleChange={handleChange}
             name="displayName"
             type="text"
             value={displayName}
@@ -58,7 +46,7 @@ class Signup extends Component {
         <div className="g-mb-2">
           <FormInput
             label="Email"
-            handleChange={this.handleChange}
+            handleChange={handleChange}
             name="email"
             type="email"
             value={email}
@@ -68,7 +56,7 @@ class Signup extends Component {
         <div className="g-mb-2">
           <FormInput
             label="Password"
-            handleChange={this.handleChange}
+            handleChange={handleChange}
             name="password"
             type="password"
             value={password}
@@ -78,25 +66,17 @@ class Signup extends Component {
         <div className="g-mb-2">
           <FormInput
             label="Confirm Password"
-            handleChange={this.handleChange}
+            handleChange={handleChange}
             name="confirmPassword"
             type="password"
             value={confirmPassword}
             required
           />
         </div>
-        <Button onClick={this.handleSubmit}>Sign up</Button>
+        <Button onClick={handleSubmit}>Sign up</Button>
       </form>
-    </div>)
-  }
+    </div>
+  )
 }
 
-const mapStateToProps = createStructuredSelector({
-  userError: selectUserError
-});
-
-const mapDispatchToProps = dispatch => ({
-  signUpStart: formData => dispatch(signUpStart(formData))
-});
-
-export default connect(mapStateToProps, mapDispatchToProps)(Signup);
+export default Signup;
